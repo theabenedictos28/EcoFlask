@@ -1,4 +1,4 @@
-<img width="586" height="352" alt="eco" src="https://github.com/user-attachments/assets/acd49989-d332-47a0-9d49-2a58464cc0f6" />🌱 ECO Flask
+🌱 ECO Flask
 Description
 ECO Flask is a product website that showcases an eco-friendly reusable bottle designed to promote sustainability and reduce plastic waste.
 
