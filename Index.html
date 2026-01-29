@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ECO Flask - Sustainable Bamboo Bottle</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0fdf4;
+  color: #1f2937;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+header {
+  position: relative;
+  min-height: 100svh;   
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/694900bc8dda72feab2c8f97.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; 
+}
+
+.header-content {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header-text {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #0c4a2d;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.highlight {
+  color: #16a34a;
+}
+
+.header-text p {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  .header-text p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+  }
+  .header-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.instagram-showcase {
+  display: flex;
+  position: relative;
+  height: 450px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+    animation: fadeInUp .8s ease-out 0.5s forwards;
+}
+
+.blob-bg {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: rgba(134, 239, 172, 0.4);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(60px);
+  animation: blobPulse 2s ease-in-out infinite;
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.instagram-card {
+  position: absolute;
+  width: 220px;
+  background: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  border: 1px solid #dcfce7;
+  transition: transform 0.5s, z-index 0.5s;
+}
+
+.instagram-card:hover {
+  transform: rotate(0deg) !important;
+  z-index: 20;
+}
+
+.card-left {
+  left: 5%;
+  top: 5%;
+  transform: rotate(-6deg);
+}
+
+.card-right {
+  right: 5%;
+  bottom: 10%;
+  transform: rotate(6deg);
+}
+
+.instagram-image {
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instagram-image.amber {
+  background: #ffffff;
+}
+
+.instagram-image.amber img {
+  mix-blend-mode: multiply;
+}
+
+.card-badges {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.badge-tag {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  border: 1px solid #86efac;
+}
+
+.instagram-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #9ca3af;
+}
+
+.instagram-actions.with-bookmark {
+  justify-content: space-between;
+}
+
+.action-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.instagram-actions .material-icons-round {
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.instagram-actions .material-icons-round:hover {
+  color: #4b5563;
+}
+
+.instagram-actions .material-icons-round.liked {
+  color: #ef4444;
+}
+
+.instagram-caption {
+  font-size: 0.7rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.instagram-caption strong {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+@media (min-width: 480px) {
+  .instagram-showcase {
+    height: 500px;
+  }
+  .instagram-card {
+    width: 250px;
+  }
+  .instagram-image {
+    height: 260px;
+  }
+  .card-left { 
+    left: 7%;
+   top: 6%; 
+ }
+  .card-right { 
+    right: 7%; 
+    bottom: 12%;
+}
+  .blob-bg {
+    width: 320px;
+    height: 320px;
+  }
+  .instagram-caption {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .instagram-showcase {
+    height: 550px;
+  }
+  .instagram-card {
+    width: 270px;
+    padding: 0.875rem;
+  }
+  .instagram-image {
+    height: 290px;
+  }
+  .card-left { 
+    left: 8%;
+   top: 7%; 
+ }
+  .card-right { 
+    right: 8%; 
+    bottom: 13%;
+}
+  .blob-bg {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .instagram-showcase {
+    height: 600px;
+  }
+  .instagram-card {
+    width: 288px;
+    padding: 1rem;
+  }
+  .instagram-image {
+    height: 320px;
+    margin-bottom: 1rem;
+  }
+  .card-left { 
+  left: 10;
+   top: 8%; 
+ }
+  .card-right { 
+    right: 10%; 
+    bottom: 14%;
+}
+  .blob-bg {
+    width: 500px;
+    height: 500px;
+  }
+  .card-badges {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+  .instagram-actions .material-icons-round {
+    font-size: 1.25rem;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: #16a34a;
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.2);
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(22, 163, 74, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: #166534;
+  padding: 0.875rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid #16a34a;
+  transition: all 0.3s;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: #f0fdf4;
+}
+
+@media (min-width: 768px) {
+  .btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary, .btn-secondary {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-section {
+  padding: 3rem 0;
+  background: white;
+  border-top: 1px solid #dcfce7;
+  border-bottom: 1px solid #dcfce7;
+  text-align: center;
+}
+
+.about-section h2, .about-section p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.about-section.animate h2, .about-section.animate p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #166534;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  font-size: 1rem;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    padding: 4rem 0;
+  }
+  .about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .about-section p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-section h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.cycle-section {
+  padding: 3rem 0;
+  background: #f0fdf4;
+  overflow-x: hidden;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #166534;
+}
+
+.cycle-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cycle-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.cycle-circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.cycle-center {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border: 4px solid #dcfce7;
+  overflow: hidden;
+}
+
+.cycle-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.cycle-ring {
+  position: absolute;
+  inset: 0;
+  border: 30px solid rgba(187, 247, 208, 0.5);
+  border-radius: 50%;
+  animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cycle-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  margin: -30px;
+  animation: orbitFloat 15s linear infinite, floatGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes orbitFloat {
+  0% {
+    transform: rotate(var(--start-angle)) translateX(150px) translateY(0);
+  }
+  25% {
+    transform: rotate(calc(var(--start-angle) + 90deg)) translateX(150px) translateY(-8px);
+  }
+  50% {
+    transform: rotate(calc(var(--start-angle) + 180deg)) translateX(150px) translateY(0);
+  }
+  75% {
+    transform: rotate(calc(var(--start-angle) + 270deg)) translateX(150px) translateY(8px);
+  }
+  100% {
+    transform: rotate(calc(var(--start-angle) + 360deg)) translateX(150px) translateY(0);
+  }
+}
+
+
+@keyframes floatGlow {
+  0%   { box-shadow: 0 5px 20px rgba(0,0,0,0.1), 0 0 10px rgba(0,255,128,0.3); }
+  50%  { box-shadow: 0 5px 20px rgba(0,0,0,0.1), 0 0 20px rgba(0,255,128,0.5); }
+  100% { box-shadow: 0 5px 20px rgba(0,0,0,0.1), 0 0 10px rgba(0,255,128,0.3); }
+}
+
+.icon-1 { --start-angle: 0deg; }
+.icon-2 { --start-angle: 72deg; }
+.icon-3 { --start-angle: 144deg; }
+.icon-4 { --start-angle: 216deg; }
+.icon-5 { --start-angle: 288deg; }
+
+.cycle-icon .material-icons-round {
+  font-size: 1.5rem;
+}
+
+.cycle-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #dcfce7;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.cycle-section.animate .step-card:nth-child(1) {
+  animation: fadeInUp .6s ease-out 0.6s forwards;
+}
+.cycle-section.animate .step-card:nth-child(2) {
+  animation: fadeInUp .6s ease-out 0.8s forwards;
+}
+.cycle-section.animate .step-card:nth-child(3) {
+  animation: fadeInUp .6s ease-out 1.0s forwards;
+}
+.cycle-section.animate .step-card:nth-child(4) {
+  animation: fadeInUp .6s ease-out 1.2s forwards;
+}
+.cycle-section.animate .step-card:nth-child(5) {
+  animation: fadeInUp .6s ease-out 1.4s forwards;
+}
+
+.step-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.step-icon {
+  padding: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.step-icon.green { background: #dcfce7; color: #166534; }
+.step-icon.yellow { background: #fef3c7; color: #a16207; }
+.step-icon.teal { background: #ccfbf1; color: #0f766e; }
+.step-icon.orange { background: #fed7aa; color: #c2410c; }
+
+.step-card h3 {
+  font-weight: 700;
+  color: #14532d;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.step-card p {
+  font-size: 0.8rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .cycle-section {
+    padding: 4rem 0;
+  }
+  .section-title {
+    margin-bottom: 3rem;
+  }
+  .section-title h2 {
+    font-size: 2.25rem;
+  }
+  .cycle-circle {
+    width: 400px;
+    height: 400px;
+  }
+  .cycle-center {
+    width: 192px;
+    height: 192px;
+  }
+  .cycle-ring {
+    border-width: 35px;
+  }
+  .cycle-icon {
+    width: 70px;
+    height: 70px;
+    margin: -35px;
+  }
+  .cycle-icon .material-icons-round {
+    font-size: 1.75rem;
+  }
+  .cycle-steps {
+    gap: 1.25rem;
+  }
+  .step-card {
+    padding: 1.25rem;
+  }
+  .step-card h3 {
+    font-size: 1rem;
+  }
+  .step-card p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cycle-section {
+    padding: 5rem 0;
+  }
+  .section-title {
+    margin-bottom: 4rem;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  .cycle-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .cycle-circle {
+    width: 500px;
+    height: 500px;
+  }
+  .cycle-center {
+    width: 256px;
+    height: 256px;
+  }
+  .cycle-ring {
+    border-width: 40px;
+  }
+  .cycle-icon {
+    width: 80px;
+    height: 80px;
+    margin: -40px;
+  }
+  .cycle-icon .material-icons-round {
+    font-size: 2rem;
+  }
+@keyframes orbitFloat {
+  0% {
+    transform: rotate(var(--start-angle)) translateX(220px) translateY(0);
+  }
+  25% {
+    transform: rotate(calc(var(--start-angle) + 90deg)) translateX(220px) translateY(-10px);
+  }
+  50% {
+    transform: rotate(calc(var(--start-angle) + 180deg)) translateX(220px) translateY(0);
+  }
+  75% {
+    transform: rotate(calc(var(--start-angle) + 270deg)) translateX(220px) translateY(10px);
+  }
+  100% {
+    transform: rotate(calc(var(--start-angle) + 360deg)) translateX(220px) translateY(0);
+  }
+}
+
+  .cycle-steps {
+    gap: 1.5rem;
+  }
+  .step-card {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.switch-section {
+  padding: 3rem 0;
+  background: white;
+  position: relative;
+}
+
+.switch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.switch-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #14532d;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.switch-section.animate .switch-text h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quote-box {
+  background: #f0fdf4;
+  padding: 1rem;
+  border-left: 4px solid #16a34a;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote-box p {
+  font-style: italic;
+  color: #166534;
+  font-size: 0.9rem;
+}
+
+.switch-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fb923c;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out 0.2s;
+}
+
+.switch-section.animate .switch-text h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.switch-text p {
+  color: #4b5563;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out 0.4s;
+}
+
+.switch-section.animate .switch-text p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.check-icon {
+  background: #dcfce7;
+  padding: 0.25rem;
+  border-radius: 50%;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.switch-visual {
+  position: relative;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out 0.6s;
+}
+
+.switch-section.animate .switch-visual {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-diagram {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-image {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  animation: pulse 2s ease-in-out infinite;
+  max-width: 100%;
+}
+
+.center-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.75rem;
+  transform: rotate(3deg);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1) rotate(3deg); }
+  50% { transform: scale(1.05) rotate(3deg); }
+}
+
+@media (min-width: 768px) {
+  .switch-section {
+    padding: 4rem 0;
+  }
+  .switch-text h2 {
+    font-size: 2.5rem;
+  }
+  .switch-text h3 {
+    font-size: 1.5rem;
+  }
+  .switch-text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .quote-box {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .quote-box p {
+    font-size: 1rem;
+  }
+  .switch-visual {
+    min-height: 500px;
+  }
+  .center-image img {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .switch-section {
+    padding: 5rem 0;
+  }
+  .switch-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 3rem;
+  }
+  .center-image img {
+    max-width: 500px;
+  }
+}
+
+footer {
+  background: #dcfce7;
+  padding: 2rem 1rem 1rem;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.footer-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.footer-icon {
+  padding: 0.1rem;
+}
+
+.footer-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-brand span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #14532d;
+}
+
+.qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qr-code {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: fit-content;
+}
+
+.qr-code img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.footer-cta {
+  background: #16a34a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.footer-right {
+  flex: 1;
+}
+
+.footer-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #14532d;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.footer-divider {
+  width: 28px;
+  height: 3px;
+  background: #14532d;
+  margin: 0.5rem auto;
+  border-radius: 50px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.6);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.footer-link span {
+  font-size: 0.75rem;
+  color: #14532d;
+  font-weight: 500;
+}
+
+.footer-link-icon {
+  background: #bbf7d0;
+  border-radius: 50%;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-badge {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.14), rgba(22, 163, 74, 0.08));
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  box-shadow: 0 1px 4px rgba(22, 163, 74, 0.15);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #15803d;
+  line-height: 1;
+}
+
+.footer-badge .material-icons-round {
+  font-size: 0.875rem;
+  color: #16a34a;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(20, 83, 45, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 0.7rem;
+  text-align: center;
+  color: #14532d;
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding: 2.5rem 2rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .footer-left {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .footer-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  .footer-brand span {
+    font-size: 1.5rem;
+  }
+  .footer-title {
+    text-align: right;
+    font-size: 1.25rem;
+  }
+  .footer-links {
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+  .footer-link {
+    width: fit-content;
+    margin-left: auto;
+  }
+  .footer-link span {
+    font-size: 0.8rem;
+  }
+  .footer-badge {
+    margin-left: auto;
+  }
+  .footer-bottom p {
+    font-size: 0.75rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html, body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto !important;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<header id="home">
+<div class="header-bg"></div>
+<div class="container">
+<div class="header-content">
+<div class="header-text">
+<div class="badge">
+<span class="material-icons-round">recycling</span>
+#GreenSwitch
+</div>
+<h1>NAG - SWITCH<br/><span class="highlight">KA NA BA?</span></h1>
+<p>The simple way to care for the environment while staying practical every day.
+    <h2 style="color: #0c4a2d;">Choose Sustainability. Choose <strong class="highlight">Bamboo.</strong></h2> </p>
+<div class="button-group">
+<button class="btn-primary">
+Make the Switch <span class="material-icons-round">arrow_forward</span>
+</button>
+<a class="btn-secondary" href="https://www.wholeecoph.com/">Learn More</a>
+</div>
+</div>
+<div class="instagram-showcase">
+<div class="blob-bg"></div>
+<div class="instagram-card card-left">
+<div class="instagram-image">
+<img alt="Eco Bottle Lifestyle" src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/6947c685106fdce8273f017f.png"/>
+</div>
+<div class="instagram-actions">
+<span class="material-icons-round liked">favorite</span>
+<span class="material-icons-round">chat_bubble_outline</span>
+<span class="material-icons-round">near_me</span>
+</div>
+<p class="instagram-caption">
+<strong>EcoFlask</strong> Greener Tomorrow #EcoFriendly #SaveEarth
+</p>
+</div>
+<div class="instagram-card card-right">
+<div class="card-badges">
+<div class="badge-tag">COMPOSTABLE</div>
+<div class="badge-tag">REUSABLE</div>
+</div>
+<div class="instagram-image amber">
+<img alt="Bamboo Bottle Product" src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/6947c6758cae8f6c082e0acb.png"/>
+</div>
+<div class="instagram-actions with-bookmark">
+<div class="action-group">
+<span class="material-icons-round liked">favorite</span>
+<span class="material-icons-round">chat_bubble_outline</span>
+<span class="material-icons-round">near_me</span>
+</div>
+<span class="material-icons-round">bookmark_border</span>
+</div>
+<p class="instagram-caption">
+<strong>EcoFlask</strong> Choose Sustainability. Choose BAMBOO. 🌿 #GreenSwitch #EcoFriendly #SaveEarth
+</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<section class="about-section">
+<div class="container">
+<h2>ECO Flask</h2>
+<p>The Eco Bottle promotes a sustainable lifestyle and a greener future. Made from natural materials, it's a reusable solution that helps reduce plastic waste. It's a simple way to care for the environment while staying practical every day.</p>
+</div>
+</section>
+
+<section class="cycle-section" id="cycle">
+<div class="container">
+<div class="section-title">
+<h2>Sustainable <span class="highlight">Product Cycle</span></h2>
+</div>
+<div class="cycle-content">
+<div class="cycle-visual">
+<div class="cycle-circle">
+<div class="cycle-center">
+<img alt="Bamboo Pellets" src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/6947dd7e8cae8f37852f5f90.png"/>
+</div>
+<div class="cycle-ring"></div>
+<div class="cycle-icon icon-1">
+<span class="material-icons-round" style="color: #16a34a;">forest</span>
+</div>
+<div class="cycle-icon icon-2">
+<span class="material-icons-round" style="color: #eab308;">grain</span>
+</div>
+<div class="cycle-icon icon-3">
+<span class="material-icons-round" style="color: #14b8a6;">recycling</span>
+</div>
+<div class="cycle-icon icon-4">
+<span class="material-icons-round" style="color: #f97316;">eco</span>
+</div>
+<div class="cycle-icon icon-5">
+<span class="material-icons-round" style="color: #16a34a;">compost</span>
+</div>
+</div>
+</div>
+<div class="cycle-steps">
+<div class="step-card">
+<div class="step-icon green">
+<span class="material-icons-round">forest</span>
+</div>
+<div>
+<h3>HARVEST</h3>
+<p>BAMBOO is sustainably harvested from forests. Collected with care to allow natural regrowth.</p>
+</div>
+</div>
+<div class="step-card">
+<div class="step-icon yellow">
+<span class="material-icons-round">grain</span>
+</div>
+<div>
+<h3>BAMBOO PELLETS</h3>
+<p>Processed into biopolymer pellets. Molded into durable, biodegradable Flow Bottles.</p>
+</div>
+</div>
+<div class="step-card">
+<div class="step-icon teal">
+<span class="material-icons-round">recycling</span>
+</div>
+<div>
+<h3>ECO-FRIENDLY PRODUCTS</h3>
+<p>It becomes an eco-friendly product that is reusable, biodegradable, and supports sustainable living.</p>
+</div>
+</div>
+<div class="step-card">
+<div class="step-icon orange">
+<span class="material-icons-round">eco</span>
+</div>
+<div>
+<h3>NATURAL FERTILIZER</h3>
+<p>The decomposed bottle becomes fertilizer for plants. This supports new growth and restarts the sustainable cycle.</p>
+</div>
+</div>
+<div class="step-card">
+<div class="step-icon green">
+<span class="material-icons-round">compost</span>
+</div>
+<div>
+<h3>RETURN TO EARTH</h3>
+<p>After use, composts fully within 250 days without harming the environment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="switch-section" id="switch">
+<div class="container">
+<div class="switch-grid">
+<div class="switch-text">
+<h2>Make the <span class="highlight">GREEN</span><br/>SWITCH</h2>
+<div class="quote-box">
+<p>"The material behind the biodegradable/compostable reusable bottle"</p>
+</div>
+<h3>Raw Material</h3>
+<p>The starting material is made from biopolymer and natural plant fibers (BAMBOO). It is <strong style="color: #166534;">100% Biodegradable</strong> and certified <strong style="color: #166534;">AS5810 Home Compostable</strong>, making the bottle an environment-promoting product inside the university campus.</p>
+<p>There is no extra investment in new equipment or machinery needed. Only simple and minor adjustments are required to accommodate these raw materials.</p>
+<ul class="feature-list">
+<li class="feature-item">
+<div class="check-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">check</span>
+</div>
+<span>Made from Bamboo Fibers</span>
+</li>
+<li class="feature-item">
+<div class="check-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">check</span>
+</div>
+<span>Certified Compostable</span>
+</li>
+<li class="feature-item">
+<div class="check-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">check</span>
+</div>
+<span>Supports Sustainable Living</span>
+</li>
+</ul>
+</div>
+<div class="switch-visual">
+<div class="process-diagram">
+<div class="center-image">
+<img alt="Biodegradable Resin Bag" src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/6947e24959a0a6168924e50f.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact" class="footer-section">
+<div class="container">
+<div class="footer-content">
+<div class="footer-left">
+<div class="footer-brand">
+<div class="footer-icon">
+<img src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/69469c2a106fdc1d471fc8f1.png" alt="Whole Eco Logo" />
+</div>
+<span>Whole Eco</span>
+</div>
+<div class="qr-wrap">
+<div class="qr-code">
+<img alt="QR Code" src="https://storage.googleapis.com/msgsndr/JKPBdmXv2sLSZ8VGVgbx/media/6947f7488dda724412f64b26.png"/>
+</div>
+<a class="footer-cta" href="https://www.wholeecoph.com">Join the green movement</a>
+</div>
+</div>
+<div class="footer-right">
+<h2 class="footer-title">
+Shaping a Sustainable<br/>Lifestyle Community
+<span class="footer-divider"></span>
+</h2>
+<div class="footer-links">
+<a class="footer-link" href="mailto:admin@wholeecoph.com">
+<span>admin@wholeecoph.com</span>
+<div class="footer-link-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">email</span>
+</div>
+</a>
+<a class="footer-link" href="https://www.wholeecoph.com">
+<span>www.wholeecoph.com</span>
+<div class="footer-link-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">language</span>
+</div>
+</a>
+<div class="footer-link">
+<span>Made in the Philippines</span>
+<div class="footer-link-icon">
+<span class="material-icons-round" style="font-size: 0.875rem;">place</span>
+</div>
+</div>
+<a href="Connect.html" class="footer-badge">
+<span class="material-icons-round">handyman</span>
+<span>Built with care</span>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025. Whole Eco Philippines. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 3. Animate about section on scroll
+  const aboutSection = document.querySelector('.about-section');
+  const cycleSection = document.querySelector('.cycle-section');
+  const switchSection = document.querySelector('.switch-section');
+  const footerSection = document.querySelector('.footer-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(aboutSection);
+  observer.observe(cycleSection);
+  observer.observe(switchSection);
+  observer.observe(footerSection);
+});
+</script>
+
+</body>
+</html>
